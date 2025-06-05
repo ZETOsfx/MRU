@@ -31,6 +31,9 @@ def main():
     print("Вручную запусти UE5 проект.")
     input("▶ Когда UE5 полностью загрузится, нажми [Enter]...\n")
 
+    print("[START] sm_saver.py")
+    saver_proc = subprocess.Popen(["python3", "sm_saver.py"])
+
     print("[START] RTAB-Map")
     rtabmap_proc = subprocess.Popen([
         "rtabmap",
@@ -38,9 +41,6 @@ def main():
         "--delete_db_on_start",
         "--Rtabmap/DetectionRate", "5"
     ])
-
-    print("[START] sm_saver.py")
-    saver_proc = subprocess.Popen(["python3", "sm_saver.py"])
 
     wait_for_rtabmap_nodes()
 
